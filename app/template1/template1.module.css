@@ -1,0 +1,40 @@
+/* :root {
+    --second: #322D29;
+    --third: #73383E;
+    --fourth: #D1C7BD;
+    --fifth: #D9D9D9;
+    --sixth: #F0E9E1;
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+
+.containerNavbar {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #1A1A1A;
+    color: #D9D9D9;
+    padding: 0px 100px;
+}
+
+.container {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.bgHero {
+    background-image: url('./assets/bg-hero.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+}
+
+.bgCardTestimonial {
+    background-image: url('./assets/bg-cardtestimonial.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px;
+    width: 100%;
+}
