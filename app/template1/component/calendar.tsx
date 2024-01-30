@@ -2,7 +2,7 @@
 
 import dayjs from "dayjs";
 import formatDate from "dayjs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import chevron from "../assets/chevron.svg";
 import Image from "next/image";
 
@@ -30,39 +30,33 @@ const generateDate = (
 
   const arrayOfDates = [];
 
-  // generate pre-date
-  for (let i = 0; i < firstDateOfMonth.day(); i++) {
-    arrayOfDates.push({
-      date: firstDateOfMonth.day(i),
-      currentMonth: false,
-    });
-  }
+  // Generate pre-date
+for (let i = 0; i < firstDateOfMonth.day(); i++) {
+  arrayOfDates.push({
+    date: firstDateOfMonth.subtract(i + 1, 'day'),
+    currentMonth: false,
+  });
+}
 
-  // generate current date
-  for (let i = firstDateOfMonth.date(); i <= lastDateOfMonth.date(); i++) {
-    arrayOfDates.push({
-      date: firstDateOfMonth.day(i),
-      currentMonth: true,
-      today:
-        firstDateOfMonth.date(i).toDate().toDateString() ===
-        dayjs().toDate().toDateString(),
-    });
-  }
+// Generate current date
+for (let i = firstDateOfMonth.date(); i <= lastDateOfMonth.date(); i++) {
+  const currentDate = firstDateOfMonth.date(i);
+  arrayOfDates.push({
+    date: currentDate,
+    currentMonth: true,
+    today: currentDate.isSame(dayjs(), 'day'),
+  });
+}
 
-  const postDate = 42 - arrayOfDates.length;
-  
-  for (
-    let i = lastDateOfMonth.date() + 1;
-    i <= lastDateOfMonth.date() + postDate;
-    i++
-  ) {
-    arrayOfDates.push({
-      date: firstDateOfMonth.day(i),
-      currentMonth: false,
-    });
-  }
+const postDate = 42 - arrayOfDates.length;
 
-  console.log(arrayOfDates);
+// Generate post-date
+for (let i = 1; i <= postDate; i++) {
+  arrayOfDates.push({
+    date: lastDateOfMonth.add(i, 'day'),
+    currentMonth: false,
+  });
+}
 
   return arrayOfDates;
 };
@@ -88,6 +82,13 @@ const Calendar = ({ setBookingDetail } : PropsBookingDetail) => {
   const currentDate = dayjs();
   const [today, setToday] = useState(currentDate);
   const [selectedDate, setSelectedDate] = useState(currentDate);
+
+  useEffect(() => {
+    setBookingDetail((prevState) => ({
+      ...prevState,
+      date: selectedDate.format("DD/MM/YYYY"),
+    }));
+  }, [selectedDate]);
 
   const prevDay = () => {
     setToday(today.month(today.month() - 1));
