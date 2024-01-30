@@ -41,7 +41,7 @@ const CardTestimonial: React.FC<TestimonialProps> = ({
         <Image src={image} alt={`${name}-${id}`} className={getCardClass()} />
       </div>
       <h3 className="text-2xl font-bold">{name}</h3>
-      <p className="text-base font-semibold">"{message}"</p>
+      <p className="text-base font-semibold">&quot;{message}&quot;</p>
     </div>
   );
 };

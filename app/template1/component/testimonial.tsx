@@ -21,7 +21,7 @@ function Testimonial() {
     <div className={`${styles.container} bg-[#322D29] text-[#D9D9D9] flex flex-col items-center gap-5 py-14`}>
       <h2 className="text-3xl font-bold">Testimonial</h2>
       <p className="text-base text-center">
-        We've got about <span className="font-bold">1k+</span> happy customers dropping by every month, and here's what a few of them have shared about their time with us!
+        We{`&apos`}ve got about <span className="font-bold">1k+</span> happy customers dropping by every month, and here{`&apos`}s what a few of them have shared about their time with us!
       </p>
       <div className="grid grid-cols-3 gap-5 w-full">
         {contentTestimonial.map((testi) => (

@@ -45,7 +45,7 @@ function Navbar({ moveTo }: NavbarProps) {
       <div className="flex justify-between py-4">
         <div className="flex items-center gap-3">
           <Image src={logo} alt="logo" width={25} height={25} />
-          <p className="font-semibold text-xl mb-0.5">The Barber's Lounge</p>
+          <p className="font-semibold text-xl mb-0.5">The Barber{`&apos`}s Lounge</p>
         </div>
         <div className="flex justify-around items-center gap-5 text-base">
           {dataNav.map((item, index) => {

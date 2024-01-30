@@ -25,7 +25,7 @@ function Treatments() {
         <h2 className="text-3xl font-bold">Treatments</h2>
         <p className="text-center">
           Our treatments are designed to ensure our customers feel totally at
-          ease and relaxed. We've curated our services with you in mind, aiming
+          ease and relaxed. We{`&apos`}ve curated our services with you in mind, aiming
           to provide a comfortable and enjoyable experience that leaves you
           feeling refreshed and rejuvenated.
         </p>
